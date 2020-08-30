@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "bank-demo"
+    }
+  },
+  "defaultProject": "bank-demo",
+  "cli": {
+    "analytics": "ce7e88bc-7a70-491d-a89a-c77cc85ee0b4"
+  }
 }
