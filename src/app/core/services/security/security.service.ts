@@ -4,12 +4,11 @@ import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {environment} from "../../../../environments/environment";
 import {User, UserLoginData} from "../../../shared/models/user.model";
-import {LOGIN_URL, REGISTER_URL, USERS_URL} from "../security.constants";
+import {LOGIN_URL, REGISTER_URL, USERS_URL} from "../../common.constants";
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class SecurityService {
+
   private token: string;
   private apiUrl: string = environment.apiUrl;
 
