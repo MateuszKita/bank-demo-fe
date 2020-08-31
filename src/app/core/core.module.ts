@@ -11,6 +11,9 @@ import {SecurityService} from "./services/security/security.service";
   imports: [
     CommonModule
   ],
+  exports: [
+    HeaderComponent
+  ],
   providers: [
     AuthInterceptorService,
     SecurityService

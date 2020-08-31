@@ -8,10 +8,10 @@ import {
 } from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {SecurityService} from '../../services/security/security.service';
-import {catchError} from 'rxjs/internal/operators/catchError';
 import {Router} from '@angular/router';
 import {environment} from "../../../../environments/environment";
 import {StatusCodes} from "http-status-codes";
+import {catchError} from "rxjs/operators";
 
 @Injectable()
 export class AuthInterceptorService implements HttpInterceptor {
