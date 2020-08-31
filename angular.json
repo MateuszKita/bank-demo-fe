@@ -28,7 +28,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/bulma/bulma.sass"
             ],
             "scripts": []
           },
@@ -123,6 +124,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "bank-demo"
+    }
+  },
+  "defaultProject": "bank-demo",
+  "cli": {
+    "analytics": "ce7e88bc-7a70-491d-a89a-c77cc85ee0b4"
+  }
 }
