@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'bd-register-step-three',
@@ -6,6 +6,8 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./register-step-three.component.scss']
 })
 export class RegisterStepThreeComponent implements OnInit {
+
+  @Input() newLogin: string;
 
   constructor() {
   }
