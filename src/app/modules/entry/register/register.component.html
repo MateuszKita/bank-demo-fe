@@ -41,6 +41,7 @@
     </div>
     <div class="steps-action">
       <button *ngIf="step !== 2" (click)="step = step + 1"
+              [disabled]="(step === 0 && personalDataGroup.invalid) || (step === 2 && additionalInfoGroup.invalid)"
               class="button is-light">Next
       </button>
     </div>
