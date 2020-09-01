@@ -1,7 +1,11 @@
+@import "src/theme/theme.constants";
+
 .navbar {
   max-width: 80vw;
   min-width: 1200px;
   margin: auto;
+  height: $header-height;
+  padding: 0 64px;
 }
 
 @media (max-width: 1200px) {
