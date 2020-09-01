@@ -23,10 +23,10 @@
 
   <div class="steps-content" [ngSwitch]="step">
     <ng-container *ngSwitchCase="0">
-      <bd-register-step-one></bd-register-step-one>
+      <bd-register-step-one [form]="personalDataGroup"></bd-register-step-one>
     </ng-container>
     <ng-container *ngSwitchCase="1">
-      <bd-register-step-two></bd-register-step-two>
+      <bd-register-step-two [form]="additionalInfoGroup"></bd-register-step-two>
     </ng-container>
     <ng-container *ngSwitchCase="2">
       <bd-register-step-three></bd-register-step-three>
