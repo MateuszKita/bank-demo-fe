@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {MaskedPasswordChar} from "./masked-password.model";
 import {MASKED_CHARS_LENGTH} from "./masked-password.constants";
 
@@ -11,7 +11,7 @@ export class MaskedPasswordComponent implements OnInit {
 
   @Output() password: EventEmitter<string[]> = new EventEmitter<string[]>();
 
-  private enabledIndexes: number[] = [1, 5, 6, 9, 12, 13];
+  @Input() enabledIndexes: number[] = [];
 
   public chars: MaskedPasswordChar[];
 

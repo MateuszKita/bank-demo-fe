@@ -1,10 +1,11 @@
 <ng-container [ngSwitch]="step">
   <ng-container *ngSwitchCase="0">
-    <bd-login-step-one (next)="step = 1; login = $event"
+    <bd-login-step-one (next)="step = 1; useLoginToGetLoginData($event)"
                        [login]="login"></bd-login-step-one>
   </ng-container>
   <ng-container *ngSwitchCase="1">
     <bd-login-step-two (previous)="step = 0"
-                       (next)="loginToAccount($event)"></bd-login-step-two>
+                       (next)="loginToAccount($event)"
+                       [enabledIndexes]="enabledIndexes"></bd-login-step-two>
   </ng-container>
 </ng-container>

@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'bd-login-step-two',
@@ -9,6 +9,8 @@ export class LoginStepTwoComponent implements OnInit {
 
   @Output() previous: EventEmitter<void> = new EventEmitter<void>();
   @Output() next: EventEmitter<string[]> = new EventEmitter<string[]>();
+
+  @Input() enabledIndexes: number[] = [];
 
   public password: string[];
 

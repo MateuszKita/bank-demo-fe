@@ -9,7 +9,8 @@
   </header>
   <div class="card-content">
     <div class="content">
-      <bd-masked-password (password)="password = $event"></bd-masked-password>
+      <bd-masked-password (password)="password = $event"
+                          [enabledIndexes]="enabledIndexes"></bd-masked-password>
     </div>
   </div>
   <footer class="card-footer">

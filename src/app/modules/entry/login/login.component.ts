@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'bd-login',
@@ -9,8 +9,13 @@ export class LoginComponent implements OnInit {
 
   public step = 0;
   public login: string;
+  public enabledIndexes: number[] = [];
 
   constructor() {
+  }
+
+  useLoginToGetLoginData(login: string): void {
+    this.login = login;
   }
 
   loginToAccount(password: string[]): void {
