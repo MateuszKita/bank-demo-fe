@@ -29,14 +29,6 @@ export class MaskedPasswordComponent implements OnInit {
     return chars;
   }
 
-  onKeyUp(event: KeyboardEvent) {
-    if (event.key === "ArrowLeft") {
-      this.goToInputSibling(false, event.target as HTMLInputElement);
-    } else if (event.key === "ArrowRight" || (event.target as HTMLInputElement).value.length > 0) {
-      this.goToInputSibling(true, event.target as HTMLInputElement);
-    }
-  }
-
   private goToInputSibling(next: boolean, target: HTMLInputElement): void {
     const siblingKey: string = next ? "nextSibling" : "previousSibling";
     let nextEnabledSibling: ChildNode = target[siblingKey];
@@ -50,6 +42,14 @@ export class MaskedPasswordComponent implements OnInit {
       if ((nextEnabledSibling as HTMLInputElement)?.focus) {
         (nextEnabledSibling as HTMLInputElement).focus();
       }
+    }
+  }
+
+  onKeyUp(event: KeyboardEvent) {
+    if (event.key === "ArrowLeft") {
+      this.goToInputSibling(false, event.target as HTMLInputElement);
+    } else if (event.key === "ArrowRight" || (event.target as HTMLInputElement).value.length > 0) {
+      this.goToInputSibling(true, event.target as HTMLInputElement);
     }
   }
 
