@@ -12,6 +12,7 @@ import {MaskedPasswordComponent} from './login/login-step-two/masked-password/ma
 import {RegisterStepOneComponent} from './register/register-step-one/register-step-one.component';
 import {RegisterStepTwoComponent} from './register/register-step-two/register-step-two.component';
 import {RegisterStepThreeComponent} from './register/register-step-three/register-step-three.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {RegisterStepThreeComponent} from './register/register-step-three/registe
   ],
   imports: [
     CommonModule,
-    EntryRoutingModule
+    EntryRoutingModule,
+    FormsModule
   ]
 })
 export class EntryModule {

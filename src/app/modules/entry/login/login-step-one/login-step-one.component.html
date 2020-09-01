@@ -16,7 +16,10 @@
         <div class="field-body">
           <div class="field">
             <p class="control">
-              <input class="input" type="email" placeholder="Recipient email">
+              <input class="input"
+                     type="text"
+                     placeholder="Login"
+                     [(ngModel)]="login">
             </p>
           </div>
         </div>
@@ -24,6 +27,8 @@
     </div>
   </div>
   <footer class="card-footer">
-    <a href="#" class="card-footer-item">Dalej</a>
+    <button class="card-footer-item button"
+            (click)="login?.length ? next.emit(login) : null">Dalej
+    </button>
   </footer>
 </div>

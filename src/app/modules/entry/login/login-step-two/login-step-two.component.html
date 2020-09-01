@@ -9,11 +9,15 @@
   </header>
   <div class="card-content">
     <div class="content">
-      <bd-masked-password></bd-masked-password>
+      <bd-masked-password (password)="password = $event"></bd-masked-password>
     </div>
   </div>
   <footer class="card-footer">
-    <a href="#" class="card-footer-item">Powrót</a>
-    <a href="#" class="card-footer-item">Dalej</a>
+    <button class="card-footer-item button"
+            (click)="previous.emit()">Powrót
+    </button>
+    <button class="card-footer-item button"
+            (click)="next.emit(password)">Zaloguj się
+    </button>
   </footer>
 </div>

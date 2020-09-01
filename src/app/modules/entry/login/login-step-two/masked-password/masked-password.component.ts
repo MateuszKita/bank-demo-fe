@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {MaskedPasswordChar} from "./masked-password.model";
 import {MASKED_CHARS_LENGTH} from "./masked-password.constants";
 
@@ -8,6 +8,8 @@ import {MASKED_CHARS_LENGTH} from "./masked-password.constants";
   styleUrls: ['./masked-password.component.scss']
 })
 export class MaskedPasswordComponent implements OnInit {
+
+  @Output() password: EventEmitter<string[]> = new EventEmitter<string[]>();
 
   private enabledIndexes: number[] = [1, 5, 6, 9, 12, 13];
 
@@ -46,6 +48,7 @@ export class MaskedPasswordComponent implements OnInit {
   }
 
   onKeyUp(event: KeyboardEvent) {
+    this.password.emit(this.chars.filter(char => !char.disabled).map(char => char.value));
     if (event.key === "ArrowLeft") {
       this.goToInputSibling(false, event.target as HTMLInputElement);
     } else if (event.key === "ArrowRight" || (event.target as HTMLInputElement).value.length > 0) {

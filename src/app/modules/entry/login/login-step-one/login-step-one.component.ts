@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'bd-login-step-one',
@@ -7,7 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginStepOneComponent implements OnInit {
 
-  constructor() { }
+  @Output() next: EventEmitter<string> = new EventEmitter<string>();
+
+  public login: string;
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
