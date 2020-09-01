@@ -4,7 +4,7 @@ import {CommonModule} from '@angular/common';
 import {EntryRoutingModule} from './entry-routing.module';
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
-import {AdvertisementComponent} from './advertisement/advertisement.component';
+import {AdvertisementComponent} from './login/advertisement/advertisement.component';
 import {EntryComponent} from './entry.component';
 import {LoginStepOneComponent} from './login/login-step-one/login-step-one.component';
 import {LoginStepTwoComponent} from './login/login-step-two/login-step-two.component';
