@@ -40,7 +40,7 @@
       </button>
     </div>
     <div class="steps-action">
-      <button *ngIf="step !== 2" (click)="step = step + 1"
+      <button *ngIf="step !== 2" (click)="step === 1 ? register() : step = step + 1"
               [disabled]="(step === 0 && personalDataGroup.invalid) || (step === 2 && additionalInfoGroup.invalid)"
               class="button is-light">Next
       </button>
@@ -48,6 +48,7 @@
 
     <div class="steps-action">
       <button *ngIf="step === 2"
+              (click)="navigateToLogin()"
               class="button is-primary">Zaloguj się na konto
       </button>
     </div>

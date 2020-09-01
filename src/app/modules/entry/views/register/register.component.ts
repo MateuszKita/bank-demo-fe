@@ -1,12 +1,21 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {UsersService} from "../../services/users.service";
+import {User} from "../../../../shared/models/user.model";
+import {Subject} from "rxjs";
+import {map, takeUntil} from "rxjs/operators";
 
 @Component({
   selector: 'bd-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent implements OnInit, OnDestroy {
+
+  private readonly onDestroy$: Subject<null> = new Subject()
+  private login: string;
+
+  public step: number = 0;
 
   public personalDataGroup: FormGroup = this.fb.group({
     firstName: ["", [Validators.required, Validators.minLength(3)]],
@@ -27,14 +36,43 @@ export class RegisterComponent implements OnInit {
     }),
   })
 
-  public step: number = 0;
-
   constructor(
-    private readonly fb: FormBuilder
+    private readonly fb: FormBuilder,
+    private readonly usersService: UsersService
   ) {
   }
 
   ngOnInit(): void {
+  }
+
+  private createRegisterData(): User {
+    return {
+      ...this.personalDataGroup.value,
+      ...this.additionalInfoGroup.value,
+      password: this.additionalInfoGroup.value.password.split('')
+    }
+  }
+
+  register(): void {
+    this.usersService.createUser(this.createRegisterData())
+      .pipe(
+        map(data => data.login),
+        takeUntil(this.onDestroy$)
+      )
+      .subscribe(login => {
+        this.login = login;
+        this.step = 2;
+      }, err => {
+        console.error(err);
+      })
+  }
+
+  navigateToLogin(): void {
+
+  }
+
+  ngOnDestroy() {
+    this.onDestroy$.next();
   }
 
 }
