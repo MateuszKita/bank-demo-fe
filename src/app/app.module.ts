@@ -1,4 +1,3 @@
-import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
@@ -11,7 +10,6 @@ import {SharedModule} from "./modules/shared.module";
     AppComponent
   ],
   imports: [
-    BrowserModule,
     CoreModule,
     SharedModule,
     AppRoutingModule

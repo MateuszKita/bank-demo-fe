@@ -13,6 +13,7 @@ import {RegisterStepOneComponent} from './views/register/register-step-one/regis
 import {RegisterStepTwoComponent} from './views/register/register-step-two/register-step-two.component';
 import {RegisterStepThreeComponent} from './views/register/register-step-three/register-step-three.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {TranslateModule} from "@ngx-translate/core";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     CommonModule,
     EntryRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TranslateModule
   ]
 })
 export class EntryModule {

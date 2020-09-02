@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy} from '@angular/core';
 import {TransfersService} from "../../services/transfers.service";
 import {Subject} from "rxjs";
 import {Router} from "@angular/router";
@@ -11,7 +11,7 @@ import {UsersService} from "../../../../shared/services/users.service";
   templateUrl: './account-transfer.component.html',
   styleUrls: ['./account-transfer.component.scss']
 })
-export class AccountTransferComponent implements OnInit, OnDestroy {
+export class AccountTransferComponent implements OnDestroy {
 
   private readonly onDestroy$: Subject<null> = new Subject()
 
@@ -35,9 +35,6 @@ export class AccountTransferComponent implements OnInit, OnDestroy {
     private readonly router: Router,
     private readonly fb: FormBuilder
   ) {
-  }
-
-  ngOnInit(): void {
   }
 
   back(): void {
