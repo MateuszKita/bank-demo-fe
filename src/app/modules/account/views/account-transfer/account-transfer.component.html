@@ -1,0 +1,139 @@
+<div class="card">
+  <header class="card-header">
+    <p class="card-header-title">
+      Przelew
+    </p>
+  </header>
+  <div class="card-content"
+       [formGroup]="transferDataForm">
+    <div class="content">
+
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">Tytuł przelewu</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <p class="control">
+              <input formControlName="title"
+                     class="input"
+                     type="text"
+                     placeholder="Tytuł">
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">Kwota</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <p class="control">
+              <input formControlName="amount"
+                     min="0"
+                     class="input"
+                     type="number"
+                     placeholder="0,00zł">
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div [formGroup]="transferDataForm.controls.recipientData">
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label">Numer konta</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <p class="control">
+                <input formControlName="accountNumber"
+                       class="input"
+                       type="text"
+                       maxlength="26"
+                       placeholder="00 0000 0000 0000 0000 0000">
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label">Odbiorca</label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <p class="control">
+                <input formControlName="name"
+                       class="input"
+                       type="text"
+                       placeholder="Imię, nazwisko / Nazwa firmy">
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="field is-horizontal"
+             [formGroup]="transferDataForm?.controls?.recipientData?.controls?.address">
+          <div class="field-label is-normal">
+            <label class="label">Adres zamieszkania</label>
+          </div>
+          <div class="field-body">
+            <div class="field"
+                 [style.flex]="7">
+              <p class="control is-small has-icons-left">
+                <input formControlName="postalCode"
+                       class="input"
+                       type="text"
+                       maxlength="6"
+                       placeholder="00-000">
+                <span class="icon is-small is-left">
+          <i class="fas fa-user"></i>
+        </span>
+              </p>
+            </div>
+            <div class="field">
+              <p class="control is-expanded has-icons-left has-icons-right">
+                <input formControlName="city"
+                       class="input is-success"
+                       type="text"
+                       placeholder="Miasto">
+                <span class="icon is-small is-left">
+          <i class="fas fa-envelope"></i>
+        </span>
+                <span class="icon is-small is-right">
+          <i class="fas fa-check"></i>
+        </span>
+              </p>
+            </div>
+            <div class="field">
+              <p class="control is-expanded has-icons-left has-icons-right">
+                <input formControlName="street"
+                       class="input is-success"
+                       type="text"
+                       placeholder="Ulica">
+                <span class="icon is-small is-left">
+          <i class="fas fa-envelope"></i>
+        </span>
+                <span class="icon is-small is-right">
+          <i class="fas fa-check"></i>
+        </span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <footer class="card-footer">
+    <button class="card-footer-item button"
+            (click)="back()">Anuluj
+    </button>
+    <button class="card-footer-item button is-primary"
+            (click)="transferMoney()">Dalej
+    </button>
+  </footer>
+</div>

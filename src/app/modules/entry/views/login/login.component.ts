@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
-import {UsersService} from "../../services/users.service";
+import {UsersService} from "../../../../shared/services/users.service";
 import {Subject} from "rxjs";
 import {takeUntil} from "rxjs/operators";
 
@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
   }
 
   navigateToCreateAccount(): void {
-    this.router.navigate(['register']);
+    this.router.navigate(['entry', 'register']);
   }
 
   useLoginToGetLoginData(login: string): void {

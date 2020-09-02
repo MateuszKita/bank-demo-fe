@@ -24,7 +24,9 @@ export class AuthInterceptorService implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     this.securityService.getToken();
-    const headers: any = req.method === 'POST' && req.url.includes(environment.apiUrl + '/users')
+    const headers: any = (req.method === 'POST' && req.url.includes(environment.apiUrl + 'users'))
+    || req.url.includes(environment.apiUrl + 'users/login')
+    || req.url.includes(environment.apiUrl + 'users/register')
       ? {}
       : {Authorization: 'Bearer ' + this.securityService.getToken()};
 
@@ -36,7 +38,7 @@ export class AuthInterceptorService implements HttpInterceptor {
       .pipe(
         catchError(error => {
           if (error instanceof HttpErrorResponse && error.status === StatusCodes.UNAUTHORIZED) {
-            this.router.navigate(['login']);
+            this.router.navigate(['entry', 'login']);
           }
           throw error;
         })

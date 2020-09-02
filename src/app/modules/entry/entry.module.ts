@@ -13,7 +13,7 @@ import {RegisterStepOneComponent} from './views/register/register-step-one/regis
 import {RegisterStepTwoComponent} from './views/register/register-step-two/register-step-two.component';
 import {RegisterStepThreeComponent} from './views/register/register-step-three/register-step-three.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {UsersService} from "./services/users.service";
+import {TranslateModule} from "@ngx-translate/core";
 
 @NgModule({
   declarations: [
@@ -32,10 +32,8 @@ import {UsersService} from "./services/users.service";
     CommonModule,
     EntryRoutingModule,
     FormsModule,
-    ReactiveFormsModule
-  ],
-  providers: [
-    UsersService
+    ReactiveFormsModule,
+    TranslateModule
   ]
 })
 export class EntryModule {

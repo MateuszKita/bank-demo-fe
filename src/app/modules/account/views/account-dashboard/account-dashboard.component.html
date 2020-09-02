@@ -1,0 +1,37 @@
+<h3 class="title is-3">Cześć {{(user$ | async)?.firstName}}!</h3>
+
+<div class="columns">
+  <div class="column column__main">
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">
+          Konto osobiste International Bank
+        </p>
+        <p class="card-header-subtitle">
+          {{(user$ | async)?.accountNumber}}
+        </p>
+      </header>
+      <div class="card-content">
+        <div class="content">
+          <p>Saldo: {{(user$ | async)?.money}}zł</p>
+        </div>
+      </div>
+      <footer class="card-footer">
+        <button class="card-footer-item button"
+                (click)="onAccountDetailsClick()">Szczegóły konta
+        </button>
+        <button class="card-footer-item button"
+                (click)="onTransfersHistoryClick()">Historia transakcji
+        </button>
+        <button class="card-footer-item button is-primary"
+                (click)="onTransferClick()">Przelew
+        </button>
+      </footer>
+    </div>
+
+  </div>
+  <div class="is-divider-vertical"></div>
+  <div class="column">
+    <img src="assets/more-options.png" alt="more-options">
+  </div>
+</div>
