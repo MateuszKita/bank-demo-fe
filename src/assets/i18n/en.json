@@ -1,7 +1,8 @@
 {
   "entry": {
     "login-step-one": {
-      "header": "Login"
+      "header": "Login",
+      "open-account": "Open account"
     }
   }
 }
