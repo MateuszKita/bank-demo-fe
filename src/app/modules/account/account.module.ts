@@ -6,9 +6,10 @@ import { AccountComponent } from './views/account.component';
 import { AccountDashboardComponent } from './views/account-dashboard/account-dashboard.component';
 import { AccountTransferComponent } from './views/account-transfer/account-transfer.component';
 import { AccountHistoryComponent } from './views/account-history/account-history.component';
+import { AccountDetailsComponent } from './views/account-details/account-details.component';
 
 @NgModule({
-  declarations: [AccountComponent, AccountDashboardComponent, AccountTransferComponent, AccountHistoryComponent],
+  declarations: [AccountComponent, AccountDashboardComponent, AccountTransferComponent, AccountHistoryComponent, AccountDetailsComponent],
   imports: [
     CommonModule,
     AccountRoutingModule
