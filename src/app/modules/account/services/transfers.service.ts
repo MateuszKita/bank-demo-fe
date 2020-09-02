@@ -24,5 +24,4 @@ export class TransfersService {
     return this.httpClient.get<Transfer[]>(`${this.transfersUrl}history`);
   }
 
-
 }
