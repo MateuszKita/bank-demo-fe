@@ -3,7 +3,8 @@ import {TransfersService} from "../../services/transfers.service";
 import {Subject} from "rxjs";
 import {Router} from "@angular/router";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {takeUntil} from "rxjs/operators";
+import {switchMap, takeUntil} from "rxjs/operators";
+import {UsersService} from "../../../../shared/services/users.service";
 
 @Component({
   selector: 'bd-account-transfer',
@@ -30,6 +31,7 @@ export class AccountTransferComponent implements OnInit, OnDestroy {
 
   constructor(
     private readonly transfersService: TransfersService,
+    private readonly usersService: UsersService,
     private readonly router: Router,
     private readonly fb: FormBuilder
   ) {
@@ -45,9 +47,11 @@ export class AccountTransferComponent implements OnInit, OnDestroy {
   transferMoney(): void {
     this.transfersService.newTransfer(this.transferDataForm.value)
       .pipe(
+        switchMap(() => this.usersService.getCurrentUserData()),
         takeUntil(this.onDestroy$)
       )
-      .subscribe(() => {
+      .subscribe(user => {
+        this.usersService.currentUser$.next(user)
         this.back();
       })
   }
