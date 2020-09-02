@@ -3,11 +3,13 @@
     <ng-container [ngSwitch]="step">
       <ng-container *ngSwitchCase="0">
         <bd-login-step-one (next)="step = 1; useLoginToGetLoginData($event)"
+                           (openAccount)="navigateToCreateAccount()"
                            [login]="login"></bd-login-step-one>
       </ng-container>
       <ng-container *ngSwitchCase="1">
         <bd-login-step-two (previous)="step = 0"
                            (next)="loginToAccount($event)"
+                           (openAccount)="navigateToCreateAccount()"
                            [enabledIndexes]="enabledIndexes"></bd-login-step-two>
       </ng-container>
     </ng-container>

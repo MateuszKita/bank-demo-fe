@@ -9,6 +9,7 @@ export class LoginStepTwoComponent implements OnInit {
 
   @Output() previous: EventEmitter<void> = new EventEmitter<void>();
   @Output() next: EventEmitter<string[]> = new EventEmitter<string[]>();
+  @Output() openAccount: EventEmitter<void> = new EventEmitter<void>();
 
   @Input() enabledIndexes: number[] = [];
 

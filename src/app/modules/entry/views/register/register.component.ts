@@ -1,16 +1,17 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {UsersService} from "../../services/users.service";
 import {User} from "../../../../shared/models/user.model";
 import {Subject} from "rxjs";
 import {map, takeUntil} from "rxjs/operators";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'bd-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent implements OnInit, OnDestroy {
+export class RegisterComponent implements OnDestroy {
 
   private readonly onDestroy$: Subject<null> = new Subject()
 
@@ -38,11 +39,9 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
   constructor(
     private readonly fb: FormBuilder,
-    private readonly usersService: UsersService
+    private readonly usersService: UsersService,
+    private readonly router: Router
   ) {
-  }
-
-  ngOnInit(): void {
   }
 
   private createRegisterData(): User {
@@ -68,7 +67,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
   }
 
   navigateToLogin(): void {
-
+    this.router.navigate(['login'], {queryParams: {login: this.login}})
   }
 
   ngOnDestroy() {

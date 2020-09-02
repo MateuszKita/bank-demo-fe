@@ -8,6 +8,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 export class LoginStepOneComponent implements OnInit {
 
   @Output() next: EventEmitter<string> = new EventEmitter<string>();
+  @Output() openAccount: EventEmitter<void> = new EventEmitter<void>();
 
   @Input() login: string;
 

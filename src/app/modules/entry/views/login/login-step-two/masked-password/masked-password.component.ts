@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {MaskedPasswordChar} from "./masked-password.model";
 import {MASKED_CHARS_LENGTH} from "./masked-password.constants";
 
@@ -7,20 +7,16 @@ import {MASKED_CHARS_LENGTH} from "./masked-password.constants";
   templateUrl: './masked-password.component.html',
   styleUrls: ['./masked-password.component.scss']
 })
-export class MaskedPasswordComponent implements OnInit {
+export class MaskedPasswordComponent {
 
   @Output() password: EventEmitter<string[]> = new EventEmitter<string[]>();
 
-  @Input() enabledIndexes: number[] = [];
+  @Input()
+  set enabledIndexes(indexes: number[]) {
+    this.chars = this.createChars(indexes, MASKED_CHARS_LENGTH);
+  }
 
   public chars: MaskedPasswordChar[];
-
-  constructor() {
-  }
-
-  ngOnInit(): void {
-    this.chars = this.createChars(this.enabledIndexes, MASKED_CHARS_LENGTH);
-  }
 
   private createChars(enabledIndexes: number[], passwordLength: number): MaskedPasswordChar[] {
     const chars: MaskedPasswordChar[] = [];
