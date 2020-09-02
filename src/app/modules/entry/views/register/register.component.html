@@ -29,7 +29,7 @@
       <bd-register-step-two [form]="additionalInfoGroup"></bd-register-step-two>
     </ng-container>
     <ng-container *ngSwitchCase="2">
-      <bd-register-step-three></bd-register-step-three>
+      <bd-register-step-three [newLogin]="login"></bd-register-step-three>
     </ng-container>
   </div>
 

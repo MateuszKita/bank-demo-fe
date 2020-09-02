@@ -13,8 +13,8 @@ import {map, takeUntil} from "rxjs/operators";
 export class RegisterComponent implements OnInit, OnDestroy {
 
   private readonly onDestroy$: Subject<null> = new Subject()
-  private login: string;
 
+  public login: string;
   public step: number = 0;
 
   public personalDataGroup: FormGroup = this.fb.group({
@@ -49,7 +49,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
     return {
       ...this.personalDataGroup.value,
       ...this.additionalInfoGroup.value,
-      password: this.additionalInfoGroup.value.password.split('')
+      password: this.personalDataGroup.value.password.split('')
     }
   }
 
