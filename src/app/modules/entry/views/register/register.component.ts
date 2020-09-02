@@ -67,7 +67,7 @@ export class RegisterComponent implements OnDestroy {
   }
 
   navigateToLogin(): void {
-    this.router.navigate(['login'], {queryParams: {login: this.login}})
+    this.router.navigate(['entry', 'login'], {queryParams: {login: this.login}})
   }
 
   ngOnDestroy() {

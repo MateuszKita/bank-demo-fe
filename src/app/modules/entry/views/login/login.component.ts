@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
   }
 
   navigateToCreateAccount(): void {
-    this.router.navigate(['register']);
+    this.router.navigate(['entry', 'register']);
   }
 
   useLoginToGetLoginData(login: string): void {

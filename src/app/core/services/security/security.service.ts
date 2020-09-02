@@ -19,7 +19,7 @@ export class SecurityService {
     if (token) {
       this.token = token;
     } else if (this.router.url !== LOGIN_URL && this.router.url !== REGISTER_URL) {
-      this.router.navigate(['/login']);
+      this.router.navigate(['entry', 'login']);
     }
     return this.token;
   }
