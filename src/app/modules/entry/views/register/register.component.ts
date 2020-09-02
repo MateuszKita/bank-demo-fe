@@ -1,6 +1,6 @@
 import {Component, OnDestroy} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {UsersService} from "../../services/users.service";
+import {UsersService} from "../../../../shared/services/users.service";
 import {User} from "../../../../shared/models/user.model";
 import {Subject} from "rxjs";
 import {map, takeUntil} from "rxjs/operators";

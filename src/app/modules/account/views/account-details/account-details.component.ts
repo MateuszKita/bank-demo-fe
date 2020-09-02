@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Observable} from "rxjs";
+import {RegisteredUser} from "../../../../shared/models/user.model";
+import {UsersService} from "../../../../shared/services/users.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'bd-account-details',
@@ -7,9 +11,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountDetailsComponent implements OnInit {
 
-  constructor() { }
+  public user$: Observable<RegisteredUser>
+
+  constructor(
+    private readonly userService: UsersService,
+    private readonly router: Router
+  ) {
+  }
 
   ngOnInit(): void {
+    this.user$ = this.userService.currentUser$;
+  }
+
+  back(): void {
+    this.router.navigate(['account', 'dashboard'])
   }
 
 }

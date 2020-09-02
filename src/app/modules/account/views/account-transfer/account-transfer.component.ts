@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {TransfersService} from "../../services/transfers.service";
 
 @Component({
   selector: 'bd-account-transfer',
@@ -7,7 +8,9 @@ import {Component, OnInit} from '@angular/core';
 })
 export class AccountTransferComponent implements OnInit {
 
-  constructor() {
+  constructor(
+    private readonly transfersService: TransfersService
+  ) {
   }
 
   ngOnInit(): void {

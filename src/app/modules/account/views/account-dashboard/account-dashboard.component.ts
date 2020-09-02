@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {RegisteredUser} from "../../../../shared/models/user.model";
 import {Router} from "@angular/router";
-import {TransfersService} from "../../services/transfers.service";
+import {UsersService} from "../../../../shared/services/users.service";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'bd-account-dashboard',
@@ -10,15 +11,16 @@ import {TransfersService} from "../../services/transfers.service";
 })
 export class AccountDashboardComponent implements OnInit {
 
-  public user: RegisteredUser
+  public user$: Observable<RegisteredUser>
 
   constructor(
     private readonly router: Router,
-    private readonly transfersService: TransfersService
+    private readonly usersService: UsersService
   ) {
   }
 
   ngOnInit(): void {
+    this.user$ = this.usersService.currentUser$;
   }
 
   onAccountDetailsClick(): void {

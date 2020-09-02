@@ -20,7 +20,7 @@ export class TransfersService {
     return this.httpClient.post<{ login: string }>(`${this.transfersUrl}new`, transferData);
   }
 
-  getTransfersHistory(transferData: NewTransferData): Observable<Transfer[]> {
+  getTransfersHistory(): Observable<Transfer[]> {
     return this.httpClient.get<Transfer[]>(`${this.transfersUrl}history`);
   }
 

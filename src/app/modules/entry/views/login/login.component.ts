@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
-import {UsersService} from "../../services/users.service";
+import {UsersService} from "../../../../shared/services/users.service";
 import {Subject} from "rxjs";
 import {takeUntil} from "rxjs/operators";
 
