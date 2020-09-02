@@ -1,0 +1,56 @@
+<div class="steps" id="stepsDemo">
+  <div class="step-item"
+       [ngClass]="{'is-active': step === 0, 'is-completed': step > 0}">
+    <div class="step-marker">1</div>
+    <div class="step-details">
+      <p class="step-title">Dane osobowe</p>
+    </div>
+  </div>
+  <div class="step-item"
+       [ngClass]="{'is-active': step === 1, 'is-completed': step > 1}">
+    <div class="step-marker">2</div>
+    <div class="step-details">
+      <p class="step-title">Dodatkowe informacje</p>
+    </div>
+  </div>
+  <div class="step-item"
+       [ngClass]="{'is-active': step === 2}">
+    <div class="step-marker">3</div>
+    <div class="step-details">
+      <p class="step-title">Weryfikacja danych</p>
+    </div>
+  </div>
+
+  <div class="steps-content" [ngSwitch]="step">
+    <ng-container *ngSwitchCase="0">
+      <bd-register-step-one [form]="personalDataGroup"></bd-register-step-one>
+    </ng-container>
+    <ng-container *ngSwitchCase="1">
+      <bd-register-step-two [form]="additionalInfoGroup"></bd-register-step-two>
+    </ng-container>
+    <ng-container *ngSwitchCase="2">
+      <bd-register-step-three [newLogin]="login"></bd-register-step-three>
+    </ng-container>
+  </div>
+
+  <div class="steps-actions">
+    <div class="steps-action">
+      <button *ngIf="step !== 0" (click)="step = step - 1"
+              class="button is-light">Previous
+      </button>
+    </div>
+    <div class="steps-action">
+      <button *ngIf="step !== 2" (click)="step === 1 ? register() : step = step + 1"
+              [disabled]="(step === 0 && personalDataGroup.invalid) || (step === 2 && additionalInfoGroup.invalid)"
+              class="button is-light">Next
+      </button>
+    </div>
+
+    <div class="steps-action">
+      <button *ngIf="step === 2"
+              (click)="navigateToLogin()"
+              class="button is-primary">Zaloguj się na konto
+      </button>
+    </div>
+  </div>
+</div>

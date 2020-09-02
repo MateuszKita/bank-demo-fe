@@ -1,0 +1,108 @@
+<div class="step-content has-text-centered is-active"
+     [formGroup]="form">
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label class="label">Data urodzenia</label>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <input [ngClass]="{'is-danger': form.controls.dateOfBirth.invalid && form.controls.dateOfBirth.dirty}"
+                 formControlName="dateOfBirth"
+                 class="input"
+                 type="date"
+                 autofocus>
+          <p *ngIf="form.controls.dateOfBirth.invalid && form.controls.dateOfBirth.dirty"
+             class="help is-danger">First name is invalid</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="field is-horizontal"
+       [formGroup]="form.controls.address">
+    <div class="field-label is-normal">
+      <label class="label">Adres zamieszkania</label>
+    </div>
+    <div class="field-body">
+      <div class="field"
+           [style.flex]="7">
+        <p class="control is-small has-icons-left">
+          <input formControlName="postalCode"
+                 class="input"
+                 type="text"
+                 placeholder="00-000">
+          <span class="icon is-small is-left">
+          <i class="fas fa-user"></i>
+        </span>
+        </p>
+      </div>
+      <div class="field">
+        <p class="control is-expanded has-icons-left has-icons-right">
+          <input formControlName="city"
+                 class="input is-success"
+                 type="text"
+                 placeholder="Miasto">
+          <span class="icon is-small is-left">
+          <i class="fas fa-envelope"></i>
+        </span>
+          <span class="icon is-small is-right">
+          <i class="fas fa-check"></i>
+        </span>
+        </p>
+      </div>
+      <div class="field">
+        <p class="control is-expanded has-icons-left has-icons-right">
+          <input formControlName="street"
+                 class="input is-success"
+                 type="text"
+                 placeholder="Ulica">
+          <span class="icon is-small is-left">
+          <i class="fas fa-envelope"></i>
+        </span>
+          <span class="icon is-small is-right">
+          <i class="fas fa-check"></i>
+        </span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="field is-horizontal"
+       [formGroup]="form.controls.parentsNames">
+    <div class="field-label is-normal">
+      <label class="label">Imiona rodziców</label>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <p class="control is-expanded has-icons-left has-icons-right">
+          <input formControlName="mother"
+                 class="input is-success"
+                 type="text"
+                 placeholder="Matka">
+          <span class="icon is-small is-left">
+          <i class="fas fa-envelope"></i>
+        </span>
+          <span class="icon is-small is-right">
+          <i class="fas fa-check"></i>
+        </span>
+        </p>
+      </div>
+      <div class="field">
+        <p class="control is-expanded has-icons-left has-icons-right">
+          <input formControlName="father"
+                 class="input is-success"
+                 type="text"
+                 placeholder="Ojciec">
+          <span class="icon is-small is-left">
+          <i class="fas fa-envelope"></i>
+        </span>
+          <span class="icon is-small is-right">
+          <i class="fas fa-check"></i>
+        </span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+</div>

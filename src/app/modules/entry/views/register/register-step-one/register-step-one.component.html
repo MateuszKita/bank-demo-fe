@@ -1,0 +1,57 @@
+<div class="step-content has-text-centered is-active"
+     [formGroup]="form">
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label class="label">First name</label>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <input [ngClass]="{'is-danger': form.controls.firstName.invalid && form.controls.firstName.dirty}"
+                 formControlName="firstName"
+                 class="input"
+                 type="text"
+                 autofocus>
+          <p *ngIf="form.controls.firstName.invalid && form.controls.firstName.dirty"
+             class="help is-danger">First name is invalid</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label class="label">Lastname</label>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <input [ngClass]="{'is-danger': form.controls.lastName.invalid && form.controls.lastName.dirty}"
+                 formControlName="lastName"
+                 class="input"
+                 type="text"
+                 autofocus>
+          <p *ngIf="form.controls.lastName.invalid && form.controls.lastName.dirty"
+             class="help is-danger">Last name is invalid</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label class="label">Password</label>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control has-icon has-icon-right">
+          <input [ngClass]="{'is-danger': form.controls.password.invalid && form.controls.password.dirty}"
+                 formControlName="password"
+                 class="input"
+                 type="password"
+                 name="password">
+          <p *ngIf="form.controls.password.invalid && form.controls.password.dirty"
+             class="help is-danger">Password is invalid</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

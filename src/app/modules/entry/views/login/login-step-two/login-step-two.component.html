@@ -1,0 +1,26 @@
+<div class="card">
+  <header class="card-header">
+    <p class="card-header-title">
+      Logowanie
+    </p>
+    <p class="card-header-subtitle">
+      <button class="button"
+              (click)="openAccount.next()">Otwórz konto
+      </button>
+    </p>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      <bd-masked-password (password)="password = $event"
+                          [enabledIndexes]="enabledIndexes"></bd-masked-password>
+    </div>
+  </div>
+  <footer class="card-footer">
+    <button class="card-footer-item button"
+            (click)="previous.emit()">Powrót
+    </button>
+    <button class="card-footer-item button"
+            (click)="next.emit(password)">Zaloguj się
+    </button>
+  </footer>
+</div>

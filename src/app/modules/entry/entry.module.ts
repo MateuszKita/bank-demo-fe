@@ -2,16 +2,18 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
 import {EntryRoutingModule} from './entry-routing.module';
-import {LoginComponent} from './login/login.component';
-import {RegisterComponent} from './register/register.component';
-import {AdvertisementComponent} from './advertisement/advertisement.component';
-import {EntryComponent} from './entry.component';
-import {LoginStepOneComponent} from './login/login-step-one/login-step-one.component';
-import {LoginStepTwoComponent} from './login/login-step-two/login-step-two.component';
-import {MaskedPasswordComponent} from './login/login-step-two/masked-password/masked-password.component';
-import {RegisterStepOneComponent} from './register/register-step-one/register-step-one.component';
-import {RegisterStepTwoComponent} from './register/register-step-two/register-step-two.component';
-import {RegisterStepThreeComponent} from './register/register-step-three/register-step-three.component';
+import {LoginComponent} from './views/login/login.component';
+import {RegisterComponent} from './views/register/register.component';
+import {AdvertisementComponent} from './views/login/advertisement/advertisement.component';
+import {EntryComponent} from './views/entry.component';
+import {LoginStepOneComponent} from './views/login/login-step-one/login-step-one.component';
+import {LoginStepTwoComponent} from './views/login/login-step-two/login-step-two.component';
+import {MaskedPasswordComponent} from './views/login/login-step-two/masked-password/masked-password.component';
+import {RegisterStepOneComponent} from './views/register/register-step-one/register-step-one.component';
+import {RegisterStepTwoComponent} from './views/register/register-step-two/register-step-two.component';
+import {RegisterStepThreeComponent} from './views/register/register-step-three/register-step-three.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {UsersService} from "./services/users.service";
 
 @NgModule({
   declarations: [
@@ -28,7 +30,12 @@ import {RegisterStepThreeComponent} from './register/register-step-three/registe
   ],
   imports: [
     CommonModule,
-    EntryRoutingModule
+    EntryRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
+  providers: [
+    UsersService
   ]
 })
 export class EntryModule {

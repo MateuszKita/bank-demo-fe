@@ -1,6 +1,4 @@
 export interface User {
-  _id: string;
-  login: string;
   password: string[];
   firstName: string;
   lastName: string;
@@ -17,6 +15,11 @@ export interface User {
   accountNumber: string;
   randomIndexes: number[];
   money: number;
+}
+
+export interface RegisteredUser extends User {
+  _id: string;
+  login: string;
 }
 
 export interface UserLoginData {

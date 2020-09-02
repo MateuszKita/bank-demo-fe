@@ -1,0 +1,36 @@
+<div class="card">
+  <header class="card-header">
+    <p class="card-header-title">
+      Logowanie
+    </p>
+    <p class="card-header-subtitle">
+      <button class="button"
+              (click)="openAccount.next()">Otwórz konto
+      </button>
+    </p>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">Login</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <p class="control">
+              <input class="input"
+                     type="text"
+                     placeholder="Login"
+                     [(ngModel)]="login">
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="card-footer">
+    <button class="card-footer-item button"
+            (click)="login?.length ? next.emit(login) : null">Dalej
+    </button>
+  </footer>
+</div>
